@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Create Task</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+  
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  
+  <style type="text/css">
+#navegador ul{
+   list-style-type: none;
+   text-align: center;
+}
+#navegador li{
+   display: inline;
+   text-align: center;
+   margin: 0 10px 0 0;
+}
+#navegador li a {
+   padding: 2px 7px 2px 7px;
+   color: #666;
+   background-color: #eeeeee;
+   border: 1px solid #ccc;
+   text-decoration: none;
+}
+#navegador li a:hover{
+   background-color: #333333;
+   color: #ffffff;
+}
+
+.addbutt {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+</style>
+
+ <script>
+
+   window.onload = function(){
+    var contador = 0;
+    document.getElementById("createtheme").onclick = function(){
+        contador=contador+1;
+        contador= contador % 2;
+        //alert(contador);
+        if (contador==1){
+            $('#formtheme').show(); //muestro mediante id
+        }
+        else{
+            $('#formtheme').hide(); //muestro mediante id
+        }
+            
+    }
+    
+    document.getElementById("buttok").onclick = function(){
+       	$('#formtheme').hide(); //muestro mediante id	   
+    }
+   }   
+   </script> 
+     
+</head>
+
+
+<body>
+  Name Manager !
+ <button type="button">Sign out</button>
+ 
+ <div id="navegador">
+<ul>
+<li><a href="manprojects">Projects</a></li>
+<li><a href="manuserproglist">User Programmers</a></li>
+<li><a href="#">Meeting List</a></li>
+
+</ul>
+</div>
+Create Task
+<br>
+<section>
+<form action="">
+	Name: <input type="text"><br>
+	Description: <input type="text"><br>
+	User Programmer: 
+	<select>
+	  <option value="programmer1">Programmer1</option>
+	  <option value="programmer2">Programmer2</option>
+	  <option value="programmer3">Programmer3</option>
+	  <option value="programmer4">Programmer4</option>
+	</select>
+	<br>
+	Start Date: <input type="date"><br>
+	Dead Line Date: <input type="date"><br>
+	Themes:
+	<select>
+	  <option value="theme1">Theme1</option>
+	  <option value="theme2">Theme2</option>
+	  <option value="theme3">Theme3</option>
+	  <option value="theme4">Theme4</option>
+	</select>
+	
+	  
+</form>
+	<button id="createtheme"class="addbutt">Create Theme</button>
+
+
+	<section>
+		<div id='formtheme' style='display:none;'>
+		
+		<form>
+				New Theme: <input type="text">
+		</form>		
+		<button id="buttok" class="addbutt">Ok</button>
+		
+		</div>
+	</section>
+<button>Finish</button>
+</section>
+
+</body>
+</html>

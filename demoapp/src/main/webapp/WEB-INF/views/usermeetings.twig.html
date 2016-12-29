@@ -33,13 +33,24 @@
    background-color: #333333;
    color: #ffffff;
 }
-   </style>
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 </head>
 
 <body>
- Welcome Programmer Name! 
+Programmer Name! 
  <button type="button">Sign out</button>
-
+ <br>
+Your Meetings
 <div id="navegador">
 <ul>
 <li><a href="usermeetings">Meetings</a></li>
@@ -49,6 +60,35 @@
 </ul>
 </div>
 
+	Meetings Calls 
+
+<!-- Aqui van a listarse las llamadas a reuniones , por lo pronto pondr'e una lista con botones -->
+
+<table>
+  <tr>
+    <th>State</th>
+    <th>Name</th>
+    <th>Vote</th>
+    <th>    </th>
+  </tr>
+
+  <tr>
+    <td>Actual</td>     <!-- Significa que esa reunio'n no se llevo' a cabo -->
+    <td>Projects to 2018</td>
+    <td>False </td>     <!-- Significa que aun no voto' -->
+   <td><a href='usermeetiopt'><button> Vote!</button></a></td>
+  </tr>	
+  
+  <tr>
+    <td>Past</td>	   <!-- Significa que esa reunio'n ya se llevo' a cabo -->
+    <td>Projects to december</td>
+    <td>True </td>     <!-- Significa que ya voto' -->
+    <td><a href='usermeetiopt'><button> Vote!</button></a></td>
+  </tr>	
+	
+</table>
+	
+	
 
 </body>
 </html>

@@ -2,10 +2,11 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Welcome  Manager</title>
+  <title> Manager</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+
   <link rel="stylesheet" href="css/style.css">
   
   <style type="text/css">
@@ -29,15 +30,21 @@
    background-color: #333333;
    color: #ffffff;
 }
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
 
-
+tr:nth-child(even) {
+    background-color: #dddddd;
 </style>
 
 </head>
 
 
 <body>
- Welcome Manager Name!
+ Manager Name!
  <button type="button">Sign out</button>
  
  <div id="navegador">
@@ -45,9 +52,36 @@
 <li><a href="manprojects">Projects</a></li>
 <li><a href="manuserproglist">User Programmers</a></li>
 <li><a href="#">Meeting List</a></li>
-
 </ul>
 </div>
+
+    <h1>Programmers Rank </h1>
+
+<hr style="color: #0056b2;" />
+
+<!-- Aqui van a listarse los programmers segun los themes seleccionados, por lo pronto pondr'e una lista con botones -->
+
+<table>
+  <tr>
+    <th>Name</th> 
+    <th>Number of Tacks</th>
+  </tr>
+
+  <tr>
+    <td>Programmer1</td>     <!-- Significa que el proyecto no finalizado -->
+    <td>5</td>    
+  </tr>	
+  
+  <tr>
+    <td>Programmer2</td>	   <!-- Significa que el proyecto ya finalizado-->
+	<td>4</td>
+   </tr>
+
+  <tr>
+    <td>Programmer3</td>	   <!-- Significa que el proyecto ya finalizado-->
+	<td>4</td>
+   </tr>    
+</table>    
 
 </body>
 </html>

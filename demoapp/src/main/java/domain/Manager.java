@@ -27,7 +27,7 @@ public class Manager implements BaseEntity<Long> {
 	
 	@OneToMany
 	@JoinColumn(name="managerId")
-	private List<ConvocatoryMeeting> convocations;
+	private List<MeetingCall> meetingcalls;
 		
 	@ManyToMany
 	@JoinTable(name="manager_has_projects",joinColumns={@JoinColumn(name="manager_id")},inverseJoinColumns={@JoinColumn(name="project_id")})

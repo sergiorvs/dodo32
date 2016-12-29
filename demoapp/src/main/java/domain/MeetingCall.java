@@ -12,10 +12,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 @Entity
-public class ConvocatoryMeeting implements BaseEntity<Long>{
+public class MeetingCall implements BaseEntity<Long>{
 	@Id
-	@SequenceGenerator(name = "convmeet_id_generator", sequenceName = "convmeet_id_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "convmeet_id_generator")
+	@SequenceGenerator(name = "meetcall_id_generator", sequenceName = "meetcall_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "meetcall_id_generator")
 	private Long id;
 	
 	@Column
@@ -28,11 +28,11 @@ public class ConvocatoryMeeting implements BaseEntity<Long>{
 	public Boolean actPast;
 	
 	@OneToMany
-	@JoinColumn(name="convocatoryId")
+	@JoinColumn(name="meetingCallId")
 	private List<UserprHasConvoc> userhasconv;
 	
 	@OneToMany
-	@JoinColumn(name="convocatoryId")
+	@JoinColumn(name="meetingCallId")
 	private List<MeetingOptions> meetingOpcions;
 
 	@Override

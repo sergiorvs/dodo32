@@ -2,10 +2,11 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Welcome  Manager</title>
+  <title>Manager</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+
   <link rel="stylesheet" href="css/style.css">
   
   <style type="text/css">
@@ -27,17 +28,23 @@
 }
 #navegador li a:hover{
    background-color: #333333;
-   color: #ffffff;
+   color: #ffffff;   
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
 }
 
-
+tr:nth-child(even) {
+    background-color: #dddddd;
 </style>
 
 </head>
 
 
 <body>
- Welcome Manager Name!
+ Name Manager !
  <button type="button">Sign out</button>
  
  <div id="navegador">
@@ -48,6 +55,32 @@
 
 </ul>
 </div>
+
+<a href="man_create_project"><button type="button">Create Project</button></a>
+<br>
+<!-- Aqui van a listarse los proyectos , por lo pronto pondr'e una lista con botones -->
+
+<table>
+  <tr>
+    <th>State</th>
+    <th>Name</th> 
+    <th>    </th>
+  </tr>
+
+  <tr>
+    <td>Actual</td>     <!-- Significa que el proyecto no finalizado -->
+    <td>App Movil</td>    
+   <td><a href='mandetailproj'><button> Go!</button></a></td>
+  </tr>	
+  
+  <tr>
+    <td>Past</td>	   <!-- Significa que el proyecto ya finalizado-->
+    <td>Judo App</td>   
+    <td><a href='mandetailproj'><button> Go!</button></a></td>
+  </tr>	
+	
+</table>
+
 
 </body>
 </html>
