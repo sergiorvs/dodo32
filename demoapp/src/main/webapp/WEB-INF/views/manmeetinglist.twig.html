@@ -2,17 +2,13 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Welcome Programmer</title>
+  <title> Manager</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
-
-      <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   
-
-
-
-<style type="text/css">
+  <style type="text/css">
 #navegador ul{
    list-style-type: none;
    text-align: center;
@@ -33,6 +29,7 @@
    background-color: #333333;
    color: #ffffff;
 }
+      
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
@@ -41,50 +38,55 @@ td, th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
-}
+}      
 </style>
+
 </head>
 
-<body>
-Programmer Name! 
- <button type="button">Sign out</button>
 
-<div id="navegador">
-<ul>
-<li><a href="usermeetings">Meetings</a></li>
-<li><a href="userprojects">Projects</a></li>
-<li><a href="#">Score</a></li>
-</ul>
+<body>
+ Manager Name!
+ <button type="button">Sign out</button>
+ 
+ <div id="navegador">
+  <ul>
+	<li><a href="manprojects">Projects</a></li>
+	<li><a href="manuserproglist">User Programmers</a></li>
+	<li><a href="manmeetinglist">Meeting List</a></li>
+ </ul>
 </div>
 
-Projects in which you participate
-<hr style="color: #0056b2;" />
+ <div>
+ Your Meetings
+<hr style="color: #0056b2;" />     
 
-<!-- Aqui van a listarse los proyectos , por lo pronto pondr'e una lista con botones -->
-
-<table>
+<a href="man_create_meeting"><button type="button">Create Meeting</button></a>
+<br>     
+     <table>
   <tr>
-    <th>State</th>
-    <th>Name</th>
-    <th>Score</th>
-    <th>    </th>
+    <th>Actual/Past</th>
+    <th>Meeting Name</th> 
+    <th>Meeting Date</th>
+   
   </tr>
 
   <tr>
     <td>Actual</td>     <!-- Significa que el proyecto no finalizado -->
-    <td>App Movil</td>
-    <td>4 </td>     
-   <td><a href='usertasks'><button> Go!</button></a></td>
+    <td>Meeting 2</td>    
+    <td>05/01/17 08:10:00 pm</td>  
   </tr>	
   
   <tr>
     <td>Past</td>	   <!-- Significa que el proyecto ya finalizado-->
-    <td>Judo App</td>
-    <td>9 </td>    
-    <td><a href='usertasks'><button> Go!</button></a></td>
+    <td>Meeting 1</td>
+    <td>15/08/16 07:30:00 pm</td>
   </tr>	
 	
 </table>
+
+     
+     
+ </div>
 
 </body>
 </html>

@@ -65,6 +65,15 @@ public class HomeController {
 	return "man_prog_rank";
 	}
 	
+	@RequestMapping(value = "/manmeetinglist", method = RequestMethod.GET)
+	String manmeetinglist(ModelMap model){
+	return "manmeetinglist";
+	}
+	
+	@RequestMapping(value = "/man_create_meeting", method = RequestMethod.GET)
+	String mancreatemeeting(ModelMap model){
+	return "man_create_meeting";
+	}
 	
 	@RequestMapping(value = "/userprog", method = RequestMethod.GET)
 	String userprog(ModelMap model){
