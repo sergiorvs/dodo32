@@ -9,11 +9,9 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class UserprHasConvoc implements BaseEntity<Long>{
 	@Id
-	@SequenceGenerator(name = "userhasconv_id_generator", sequenceName = "userhasconv_id_seq", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userhasconv_id_generator")
-	private Long id;
-	
-	
+	@SequenceGenerator(name = "userhasmeetcalls_id_generator", sequenceName = "userhasmeetcalls_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userhasmeetcalls_id_generator")
+	private Long id;	
 	
 	@Override
 	public Long getId() {		

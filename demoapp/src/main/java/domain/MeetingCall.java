@@ -29,7 +29,7 @@ public class MeetingCall implements BaseEntity<Long>{
 	
 	@OneToMany
 	@JoinColumn(name="meetingCallId")
-	private List<UserprHasConvoc> userhasconv;
+	private List<UserprHasConvoc> userhasmc;
 	
 	@OneToMany
 	@JoinColumn(name="meetingCallId")

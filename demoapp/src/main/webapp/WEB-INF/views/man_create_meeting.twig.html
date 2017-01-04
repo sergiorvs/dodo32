@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Welcome  Manager</title>
+  <title>Manager</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
@@ -30,8 +30,14 @@
    color: #ffffff;
 }
 
-
 </style>
+
+<script>
+function funcao1()
+{
+alert("Tiene que redireccionar a manmeetinglist. Esta alert debe ser  borrada del codigo ");   
+}
+</script>
 
 </head>
 
@@ -44,7 +50,7 @@
 <ul>
 <li><a href="manprojects">Projects</a></li>
 <li><a href="manuserproglist">User Programmers</a></li>
-<li><a href="manmeetinglist">Meeting List</a></li>
+<li><a href="manmeetinglist" style="background-color:#d97e02; color: #ffffff;" >Meeting List</a></li>
 
 </ul>
 </div>
@@ -52,6 +58,18 @@
 <div>
 Create Meeting
 <hr style="color: #0056b2;" /> 
+ <form action="">
+		Name: <input type="text" name="mname" required><br>
+		Guests:<br>
+        <input type="checkbox" name="Theme1" value="Theme1"> Programmer1 <br>
+        <input type="checkbox" name="Theme2" value="Theme2"> Programmer2 <br> 
+        <input type="checkbox" name="Theme3" value="Theme3"> Programmer3 <br>
+        <input type="checkbox" name="Theme4" value="Theme4"> Programmer4 <br> 
+        
+        <a href="manmeetinglist"><input type="submit" value="Ok" onclick="funcao1()"></a>
+ </form>    
+    <!-- a href="manmeetinglist"><button>Ok</button></a-->
+
 
 </div>
 

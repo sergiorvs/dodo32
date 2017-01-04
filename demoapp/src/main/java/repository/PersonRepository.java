@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 
 import domain.Person;
 
-public interface PersonaRepository {
+public interface PersonRepository {
 	Person save(Person pers);
 	
 	@Query("SELECT p FROM Person p ")
@@ -20,4 +20,8 @@ public interface PersonaRepository {
 	
 	@Query("SELECT p FROM Person p WHERE p.id = :id_persona")
 	Person BuscarPersonasPorId(@Param("id_persona") Long id_persona);
+	
+	@Query("SELECT p.id, p.typePerson FROM Person p WHERE p.email = :email_send AND p.password =: pass_send")
+	Person SearchForEmailPasswd(@Param("email_send") String email_send, @Param("pass_send") String pass_send);
+	
 }

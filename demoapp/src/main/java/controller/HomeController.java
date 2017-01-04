@@ -11,9 +11,16 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET) //Get : recupera datos del lado del servidor
 	String home(ModelMap model) {
 	return "home";
+	
+	
 }
 	
 	// Borrar los que estan a continuacion si o si
+	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	String register(ModelMap model){
+	return "register";
+	}
+	
 	@RequestMapping(value = "/manager", method = RequestMethod.GET)
 	String manager(ModelMap model){
 	return "manager";
@@ -58,7 +65,7 @@ public class HomeController {
 	@RequestMapping(value = "/mandetailcomptask", method = RequestMethod.GET)
 	String mandetailcomptask(ModelMap model){
 	return "mandetailcomptask";
-	}
+	}	
 	
 	@RequestMapping(value = "/man_prog_rank", method = RequestMethod.GET)
 	String manprogrank(ModelMap model){
@@ -113,6 +120,11 @@ public class HomeController {
 	@RequestMapping(value = "/userdetailcomptask", method = RequestMethod.GET)
 	String completedlist(ModelMap model){
 	return "userdetailcomptask";
+	}
+	
+	@RequestMapping(value = "/user_score", method = RequestMethod.GET)
+	String userscore(ModelMap model){
+	return "user_score";
 	}
 	
 }

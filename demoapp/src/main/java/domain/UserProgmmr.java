@@ -40,7 +40,7 @@ public class UserProgmmr implements BaseEntity<Long>{
 	
 	@OneToMany
 	@JoinColumn(name="userProgmmrId")
-	public List<UserprHasConvoc> userhasconv;
+	public List<UserprHasConvoc> userhasmc;
 	
 	@OneToMany
 	@JoinColumn(name="userProgmmrId")
