@@ -10,6 +10,7 @@ import org.springframework.data.repository.query.Param;
 import domain.Person;
 
 public interface PersonRepository {
+	//sirve como el login
 	Person save(Person pers);
 	
 	@Query("SELECT p FROM Person p ")
