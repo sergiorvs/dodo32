@@ -18,14 +18,14 @@ public class PersonController {
 	
 	@RequestMapping(value= "/validar-usuario",method = RequestMethod.GET)
 	String validarUsuario(@RequestParam(required = true) String usernam, @RequestParam(required = true) String paswd, ModelMap model){
-		Person person= personService.validarUsuario(usernam,paswd);
+		Person person = personService.validarUsuario(usernam,paswd);
 		if(person!=null){
 			if (person.typePerson == 1 ){ //manager = 1 
-				model.addAttribute("manager",person);
-				return "manager";
+				model.addAttribute("person",person);  //("manager",person);
+ 				return "manager";
 			}
 			else {	//programmer = 2
-				model.addAttribute("userprog",person);
+				model.addAttribute("person",person);  //("userprog",person);
 				return "userprog";
 			}
 		}
