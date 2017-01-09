@@ -11,7 +11,6 @@ import app.dominio.Task;
 import app.dominio.UserProgmmr;
 
 
-
 public interface UserRepository {
 	UserProgmmr save(UserProgmmr usr);
 	

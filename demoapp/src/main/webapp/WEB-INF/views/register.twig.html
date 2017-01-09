@@ -6,8 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
-
-      <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   
 </head>
 
@@ -590,21 +589,25 @@ $(document).ready(function() {
       
      <div class="login__form">
       
-       <form>
+       <form action="home" method="POST">
        <div class="login__row">
-       		<input type="text" class="login__input name" placeholder="Firstname" required/>
+       		<input type="text" class="login__input name" placeholder="Firstname" name="firstName" value="{{person.firstName}}" required/>
        </div>
        
        <div class="login__row">
-       		<input type="text" class="login__input name" placeholder="Lastname" required/>
+       		<input type="text" class="login__input name" placeholder="Lastname" name="lastName" value="{{person.lastName}}" required/>
        </div>		
        
         <div class="login__row">
-            <input type="date" class="login__input name" required/>
+            <input type="date" class="login__input name" />
        </div>		
        
         <div class="login__row">
        		<input type="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" class="login__input name" placeholder="email" required/>
+       </div>
+       
+       <div class="login__row">
+       		<input type="text" class="login__input name" placeholder="username" />
        </div>		
             
         <div class="login__row">

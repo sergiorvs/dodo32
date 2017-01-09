@@ -9,15 +9,26 @@ import org.springframework.data.repository.query.Param;
 import app.dominio.Person;
 
 public interface PersonRepository extends Repository<Person, Long> {
-		//sirve como el login
+		//its like login
 		Person save(Person pers);
 		
+		@Query("SELECT u FROM Person u WHERE u.username= :usernam  and u.password= :paswd ")
+		Person validarLogin(@Param("usernam") String usernam, @Param("paswd") String paswd);
+		
+		/*
 		@Query("SELECT p FROM Person p ")
 		List<Person> buscarTodos();
-		/*
+		
 		@Query("SELECT p FROM Person p WHERE p.id = :id")
 		Person buscarPorId(@Param("id") Long id);
 		
+		 */
+		
+		
+		
+		
+		
+		/* ROLO LO COMENTO
 		@Query("SELECT p FROM Person p WHERE p.id = :id_persona")
 		Person BuscarPersonasPorId(@Param("id_persona") Long id_persona);
 		

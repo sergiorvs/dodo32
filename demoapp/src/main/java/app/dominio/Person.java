@@ -20,23 +20,25 @@ public class Person implements BaseEntity<Long>{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "person_id_generator")
 	private Long id;
 
-	@Column(length = 64)
+	@Column(length = 64, nullable=true)
 	private String firstName;
 
-	@Column(length = 64)
+	@Column(length = 64, nullable=true)
 	private String lastName;
 
+	@Column(length = 64, unique=true,  nullable=true)
+	private String username;
 
-	@Column(length = 64)
+	@Column(length = 64, nullable=true)
 	public String email;
 	
-	@Column(length = 64)
+	@Column(length = 64, nullable=true)
 	private String password;    //private !!! 
 	
 	@Column(length = 64)
 	public Date birthDate;
 	
-	@Column
+	@Column(nullable=false)
 	public Short typePerson;    //1 : Manager  ,   2: UserProgrammer
 	
 	
@@ -89,6 +91,14 @@ public class Person implements BaseEntity<Long>{
 	
 	public void setemail(String email){
 		this.email = email;
+	}
+	
+	public void setUserName(String username_){
+		username = username_;
+	}
+	
+	public String getUserName(){
+		return username;
 	}
 	
 	public void setPassw(String password){

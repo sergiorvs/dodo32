@@ -14,6 +14,7 @@ public class SpotifyController {
 	}
 	
 	// Borrar los que estan a continuacion si o si
+	/*
 		@RequestMapping(value = "/register", method = RequestMethod.GET)
 		String register(ModelMap model){
 		return "register";
@@ -124,7 +125,7 @@ public class SpotifyController {
 		String userscore(ModelMap model){
 		return "user_score";
 		}
-		
+	*/	
 }
 
 

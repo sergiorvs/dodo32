@@ -15,7 +15,7 @@ import app.repositorio.PersonRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpotifyApplicationTests {
+public class FirstTest {
 	
 	@Autowired
 	PersonRepository personrepository;
@@ -28,6 +28,7 @@ public class SpotifyApplicationTests {
 		persona1.setFirstName("Ximena");
 		persona1.setLastName("Pocco");
 		persona1.setBirthdate(new Date());
+		persona1.setUserName("xime996");
 		persona1.setemail("ximena@gmail.com");
 		persona1.setPassw("123");
 		persona1.setType(num);

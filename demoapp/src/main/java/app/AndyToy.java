@@ -12,9 +12,9 @@ import app.configuracion.WebConfiguracion;
 @SpringBootApplication
 @Import(WebConfiguracion.class)
 @EnableAutoConfiguration
-public class SpotifyApplication {	
+public class AndyToy {	
 	public static void main(String[] args) throws Exception{
-		SpringApplication.run(SpotifyApplication.class, args);
+		SpringApplication.run(AndyToy.class, args);
 	}
 
 }
