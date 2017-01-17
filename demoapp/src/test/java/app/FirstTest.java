@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import app.dominio.Manager;
 import app.dominio.Person;
 import app.repositorio.PersonRepository;
 
@@ -22,18 +23,20 @@ public class FirstTest {
 
 	@Test
 	public void test() {
-		short num;
-		num = 2;
+		
 		Person persona1= new Person();
-		persona1.setFirstName("Ximena");
+		persona1.setFirstName("Sofia");
 		persona1.setLastName("Pocco");
 		persona1.setBirthdate(new Date());
-		persona1.setUserName("xime996");
-		persona1.setemail("ximena@gmail.com");
-		persona1.setPassw("123");
-		persona1.setType(num);
+		persona1.setUserName("sofia4396");
+		persona1.setemail("sofia96@gmail.com");
+		persona1.setPassw("789");
+		persona1.setType("AVBS1");
 		
 		Person p = personrepository.save(persona1);
+		
+		
+		
 	}
 	
 }

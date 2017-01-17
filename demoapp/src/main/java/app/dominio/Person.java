@@ -1,4 +1,4 @@
-package app.dominio;
+	package app.dominio;
 
 import java.util.Date;
 import java.util.List;
@@ -9,7 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -41,15 +43,16 @@ public class Person implements BaseEntity<Long>{
 	@Column(nullable=false)
 	public Short typePerson;    //1 : Manager  ,   2: UserProgrammer
 	
-	
+	/*
 	@OneToMany
 	@JoinColumn(name="personId")
 	public List<Manager> managers;
 	
+	
 	@OneToMany
 	@JoinColumn(name="personId")
 	public List<UserProgmmr> usersProgr;	
-	
+	*/
 	
 	
 	@Override
@@ -105,12 +108,16 @@ public class Person implements BaseEntity<Long>{
 		this.password = password;
 	}
 	
-	public void setType(short typepers){ //typepers:  1 para managere ,  2 para Progremmer
-		typePerson = typepers;
+	public void setType(String typepers){ //typepers:  1 para managere ,  2 para Progremmer
+		Short code;
+		typepers = typepers.substring(typepers.length()-1);
+		code = Short.parseShort(typepers);
+		typePerson = code;
 	}
 	
-	public Short getType(short tupepers){
+	public Short getType(){
 		return typePerson;
 	}	
+	
 	
 }

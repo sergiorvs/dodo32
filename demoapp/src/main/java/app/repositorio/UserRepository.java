@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 import app.dominio.MeetingCall;
@@ -11,9 +12,10 @@ import app.dominio.Task;
 import app.dominio.UserProgmmr;
 
 
-public interface UserRepository {
+public interface UserRepository extends Repository<UserProgmmr,Long> {
 	UserProgmmr save(UserProgmmr usr);
 	
+	/*
 	@Query("SELECT m FROM UserProgmmr m ")
 	List<UserProgmmr> buscarTodos();
 	
@@ -34,6 +36,7 @@ public interface UserRepository {
 	
 	@Query("SELECT mt FROM meeting_call mt WHERE mt.act_past=true")
 	List<MeetingCall> ver_reuniones();
+	*/
 	
 	//falta setear una hora para la reunion
 }

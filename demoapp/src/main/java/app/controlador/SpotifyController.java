@@ -1,7 +1,10 @@
 package app.controlador;
 
+import java.util.Date;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,9 +18,15 @@ public class SpotifyController {
 	
 	// Borrar los que estan a continuacion si o si
 	/*
-		@RequestMapping(value = "/register", method = RequestMethod.GET)
+		@RequestMapping(value = "/register", method = RequestMethod.GET)		
 		String register(ModelMap model){
 		return "register";
+		}
+		
+		@PostMapping("/user_register")
+		String formuserReg(String firstnam, String lastnam,  Date birthdate, String mail , String usernam, String paswd, String personCode, ModelMap model ){
+			
+			return "";
 		}
 		
 		@RequestMapping(value = "/manager", method = RequestMethod.GET)
@@ -25,7 +34,7 @@ public class SpotifyController {
 		return "manager";
 		}
 
-		
+	*/	
 		@RequestMapping(value = "/manprojects", method = RequestMethod.GET)
 		String manprojects(ModelMap model){
 		return "manprojects";
@@ -125,7 +134,7 @@ public class SpotifyController {
 		String userscore(ModelMap model){
 		return "user_score";
 		}
-	*/	
+		
 }
 
 

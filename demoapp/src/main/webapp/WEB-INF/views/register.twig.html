@@ -589,36 +589,36 @@ $(document).ready(function() {
       
      <div class="login__form">
       
-       <form action="home" method="POST">
+       <form action="user_register" method="POST">
        <div class="login__row">
-       		<input type="text" class="login__input name" placeholder="Firstname" name="firstName" value="{{person.firstName}}" required/>
+       		<input type="text" class="login__input name" placeholder="Firstname" name="firstn" value="{{person.firstName}}" required/>
        </div>
        
        <div class="login__row">
-       		<input type="text" class="login__input name" placeholder="Lastname" name="lastName" value="{{person.lastName}}" required/>
+       		<input type="text" class="login__input name" placeholder="Lastname" name="lastn" value="{{person.lastName}}" required/>
        </div>		
        
-        <div class="login__row">
-            <input type="date" class="login__input name" />
-       </div>		
+        <!-- div class="login__row">
+            <input type="date" class="login__input name" name="birthd"/>
+       </div-->		
        
         <div class="login__row">
-       		<input type="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" class="login__input name" placeholder="email" required/>
+       		<input type="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" class="login__input name" placeholder="E-mail" name="mailpers" required/>
        </div>
        
        <div class="login__row">
-       		<input type="text" class="login__input name" placeholder="username" />
+       		<input type="text" class="login__input name" placeholder="Username" name="userna" />
        </div>		
             
         <div class="login__row">
-       		<input type="password" class="login__input name" placeholder="Password" />
+       		<input type="password" class="login__input name" placeholder="Password" name="paswd"/>
        </div>		
           
         <div class="login__row">
-       		<input type="text" class="login__input name" placeholder="Code V-Got" />
+       		<input type="text" class="login__input name" placeholder="Code V-Got" name="personCode"/>
        </div>
           
-           <a href="home"><button type="submit" class="login__submit">Sign in</button></a>
+           <button type="submit" class="login__submit">Sign in</button>
        </form>
       </div>
     </div>

@@ -1,18 +1,22 @@
 package app.repositorio;
 
-import java.util.Collection;
-import java.util.List;
-
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 import app.dominio.Manager;
-import app.dominio.Task;
 
-public interface ManagerRepository {
+public interface ManagerRepository extends Repository<Manager,Long>{ 
 	Manager save(Manager manag);
-	Task save(Task tarea); 
+	/*	
+	@Query("SELECT m FROM Manager WHERE m.Person.id= : idmanager")
+	Manager findManager(@Param("idmanager")Long idmanager);	
+	*/
 	
+	
+	//Task save(Task tarea); 
+	
+	/*
 	///primero se deberia crear un projecto	
 		@Query("INSERT INTO Project VALUES(?1 , ?2 ,?3 ,?4)")
 		void crear_projecto(Long id,String descripcion,String nombre ,Boolean activo);
@@ -37,6 +41,6 @@ public interface ManagerRepository {
 
 		@Query("SELECT M FROM Manager m WHERE m.id = :id_persona")
 		Manager BuscarPersonasPorId(@Param("id_persona") Long id_persona);
-		
+	*/	
 	
 }

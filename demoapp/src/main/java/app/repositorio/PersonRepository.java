@@ -15,6 +15,7 @@ public interface PersonRepository extends Repository<Person, Long> {
 		@Query("SELECT u FROM Person u WHERE u.username= :usernam  and u.password= :paswd ")
 		Person validarLogin(@Param("usernam") String usernam, @Param("paswd") String paswd);
 		
+		
 		/*
 		@Query("SELECT p FROM Person p ")
 		List<Person> buscarTodos();
