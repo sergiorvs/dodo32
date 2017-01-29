@@ -28,14 +28,18 @@ public class Project implements BaseEntity<Long>{
 	public String Description;
 
 	@Column
-	public Boolean actFinis;
+	public Boolean actFinis=true;
 	
-	@ManyToMany(mappedBy = "projectsId")
-	private List<Manager> menagers;
+	/*@ManyToMany(mappedBy = "projectsId")
+	private List<Manager> menagers;*/
 	
 	@OneToMany
 	@JoinColumn(name="projectId")
 	public List<Task> tasks;
+	
+	@OneToMany
+	@JoinColumn(name="projId")
+	private List<Man_has_Proj> manhasproj;
 	
 	
 	@Override
@@ -48,7 +52,21 @@ public class Project implements BaseEntity<Long>{
 		this.id = id;
 	}
 	
+	public void setName(String name_){
+		Name = name_;
+	}
 	
+	public void setDescript(String descript){
+		Description = descript;
+	}
+	
+	public void setManhasproj(Man_has_Proj mhp){
+		manhasproj.add(mhp);
+	}
+	
+	public List<Man_has_Proj> getListManhasproj(){
+		return manhasproj;
+	}
 	
 
 }

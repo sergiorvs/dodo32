@@ -2,12 +2,12 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Manager</title>
+  <title>Create Task</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
-
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   
   <style type="text/css">
 #navegador ul{
@@ -30,8 +30,23 @@
    background-color: #333333;
    color: #ffffff;
 }
+
+.addbutt {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
 </style>
 
+
+     
 </head>
 
 
@@ -41,20 +56,34 @@
  
  <div id="navegador">
 <ul>
-<li><a href="manprojectlist" style="background-color:#d97e02; color: #ffffff;" >Projects</a></li>
+<li><a href="manprojects" style="background-color:#d97e02; color: #ffffff;" >Projects</a></li>
 <li><a href="manuserproglist">User Programmers</a></li>
 <li><a href="manmeetinglist">Meeting List</a></li>
 
 </ul>
 </div>
-
-Create Project 
+Create Task
 <br>
-<form action="form_create_project" method="POST">
-  Project name: <input type="text" name="pname" value="{{project.name}}" required><br>
-  Description: <input type="text" name="dname" value="{{project.description}}" required><br>
-  <input type="submit" value="Ok">
-</form>
+<section>
+
+	
+
+	<section>
+		
+		<div id='formtheme'>
+		
+		<fieldset>
+  		<legend>Create Theme </legend>		
+		<form action="manaddtheme" method="POST">
+				New Theme: <input type="text" name="newtheme" required>
+                <input type="submit" id="buttok" class="addbutt">
+		</form>		
+		</fieldset>
+		
+		</div>
+	</section>
+	
+</section>
 
 </body>
 </html>

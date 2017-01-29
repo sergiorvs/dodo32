@@ -15,6 +15,9 @@ public interface PersonRepository extends Repository<Person, Long> {
 		@Query("SELECT u FROM Person u WHERE u.username= :usernam  and u.password= :paswd ")
 		Person validarLogin(@Param("usernam") String usernam, @Param("paswd") String paswd);
 		
+		@Query(value = "SELECT * FROM person WHERE person.type_person = ?1",nativeQuery = true)
+		//@Query("SELECT p.id, p.firstName FROM Person p WHERE p.typePerson= :typePers")
+		List<Person> getAllTypePerson(@Param("typePers")Short typePers);
 		
 		/*
 		@Query("SELECT p FROM Person p ")

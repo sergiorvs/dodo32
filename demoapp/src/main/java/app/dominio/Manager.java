@@ -22,14 +22,10 @@ public class Manager implements BaseEntity<Long> {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "manager_id_generator")
 	private Long id;	
 	
-	/*@OneToOne
-	@JoinColumn(name = "person_id", referencedColumnName="id")
-	private Person person;*/
+
 	
 	@OneToOne
 	private Person pers;
-	
-	
 	
 	@OneToMany
 	@JoinColumn(name="managerId")
@@ -38,10 +34,18 @@ public class Manager implements BaseEntity<Long> {
 	@OneToMany
 	@JoinColumn(name="managerId")
 	private List<MeetingCall> meetingcalls;
+	
+	
+	@OneToMany
+	@JoinColumn(name="manId")
+	private List<Man_has_Proj> manhasproj; 
+	
 		
-	@ManyToMany
-	@JoinTable(name="manager_has_projects",joinColumns={@JoinColumn(name="manager_id")},inverseJoinColumns={@JoinColumn(name="project_id")})
-	private List<Project> projectsId;
+	/*@ManyToMany
+	@JoinTable(name="manager_has_projects",
+	joinColumns=@JoinColumn(name="man_id", referencedColumnName="id"),
+	inverseJoinColumns=@JoinColumn(name="proj_id", referencedColumnName="id"))
+	private List<Project> projectsId;*/
 	
 	/*
 	@ManyToOne
@@ -73,5 +77,13 @@ public class Manager implements BaseEntity<Long> {
 	
 	public void setPerson(Person persn){
 		pers = persn;
+	}
+	
+	public void setManhasproj(Man_has_Proj mhp){
+		manhasproj.add(mhp);
+	}
+	
+	public List<Man_has_Proj> getListManhasproj(){
+		return manhasproj;
 	}
 }

@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
-  <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   
   <style type="text/css">
@@ -32,7 +31,7 @@
 }
 
 .addbutt {
-    background-color: #4CAF50;
+    background-color: #c4ccc5;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -72,7 +71,7 @@
 
 
 <body>
-  Name Manager !
+  Manager {{ person.firstname }} !
  <button type="button">Sign out</button>
  
  <div id="navegador">
@@ -86,42 +85,50 @@
 Create Task
 <br>
 <section>
-<form action="">
-	Name: <input type="text"><br>
-	Description: <input type="text"><br>
+<form action="form_create_task" method="POST">
+	Name: <input type="text"name="taskname"><br>
+	Description:<br> <textarea name="taskdescript"></textarea><br>
 	User Programmer: 
+	
 	<select>
-	  <option value="programmer1">Programmer1</option>
-	  <option value="programmer2">Programmer2</option>
-	  <option value="programmer3">Programmer3</option>
-	  <option value="programmer4">Programmer4</option>
+	
+	  <option value="" name="">Select a programmer</option>
+	  
+	{% for programmer in programmers %}	
+	 <option value="{{ programmer.id }}" name="programmer">{{ programmer.firstName }}</option>
+	{% endfor %}
+	  
 	</select>
 	<br>
+	
 	Start Date: <input type="date"><br>
 	Dead Line Date: <input type="date"><br>
-	Themes:
-	<select>
-	  <option value="theme1">Theme1</option>
-	  <option value="theme2">Theme2</option>
-	  <option value="theme3">Theme3</option>
-	  <option value="theme4">Theme4</option>
-	</select>
+	Themes:<br>
+	
+	{% for theme in themes %}
+	<input type="checkbox" name="DataB" value="{{ theme.id }}">{{ theme.name }}  <br>
+	{% endfor %}
+	
 	
 	  
 </form>
-	<button id="createtheme"class="addbutt">Create Theme</button>
-
+	<button id="createtheme" class="addbutt" disabled="true">Create Theme</button>
 
 	<section>
+		
 		<div id='formtheme' style='display:none;'>
 		
-		<form>
-				New Theme: <input type="text" required name="newtheme" >
-                    <input type="submit" id="buttok" class="addbutt">
+		<fieldset>
+  		<legend>Create Theme </legend>		
+		<form action="man_create_thm" method="GET">
+				New Theme: <input type="text" name="newtheme" required>
+                <input type="submit" id="buttok" class="addbutt">
 		</form>		
+		</fieldset>
 		
 		</div>
 	</section>
+	
 <button>Finish</button>
 </section>
 

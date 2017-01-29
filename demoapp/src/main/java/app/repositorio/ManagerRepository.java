@@ -5,13 +5,14 @@ import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 
 import app.dominio.Manager;
+import app.dominio.Person;
 
 public interface ManagerRepository extends Repository<Manager,Long>{ 
 	Manager save(Manager manag);
-	/*	
-	@Query("SELECT m FROM Manager WHERE m.Person.id= : idmanager")
-	Manager findManager(@Param("idmanager")Long idmanager);	
-	*/
+	
+	@Query(value = "SELECT * FROM Manager WHERE pers_id = ?1", nativeQuery = true)
+	Manager findManager(@Param("idpers")Long idpers);	
+	
 	
 	
 	//Task save(Task tarea); 

@@ -34,6 +34,7 @@ public class PersonService {
 		return personRepository.validarLogin(usernam, paswd);
 	} 
 	
+	@Transactional
 	public Person registertype(String firstnam, String lastnam, String mail , String usernam, String paswd, String personCode ){
 		
 		Person persona1= new Person();
@@ -60,6 +61,17 @@ public class PersonService {
 		
 		return p;
 	}
+	
+	
+	public List<Person> getAllTypePerson(Short typePerson){
+		return personRepository.getAllTypePerson(typePerson);
+	}
+	
+	
+	/*public void sendManagerAndPerson(Manager man, Person pers,   ){
+		
+	}
+	*/
 	
 	/*
 	public Person get(Long id) {

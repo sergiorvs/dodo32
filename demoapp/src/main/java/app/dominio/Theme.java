@@ -22,7 +22,7 @@ public class Theme implements BaseEntity<Long>{
 	private Long id;
 	
 	@Column(length = 64)
-	public String Nombre;
+	public String Name;
 		
 	/*@ManyToMany(mappedBy = "temas")
 	private List<Task> tasks;*/
@@ -46,6 +46,12 @@ public class Theme implements BaseEntity<Long>{
 		this.id = id;
 	}
 	
+	public void setName(String name){
+		Name = name;
+	}
 	
+	public String getName(){
+		return Name;
+	}
 	
 }

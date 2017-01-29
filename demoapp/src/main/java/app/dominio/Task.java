@@ -28,7 +28,7 @@ public class Task implements BaseEntity<Long>{
 	public String Description;	
 		
 	@Column
-	public Date StartDate;
+	public Date StartDate = new Date();
 		 
 	@Column
 	public Date DeadLineDate;   //fecha fin establecida por el Manager
@@ -37,7 +37,7 @@ public class Task implements BaseEntity<Long>{
 	public Date DeliveryDate;   //Fecha de entrega de tarea, registrada por el UserProgrmmr 
 	
 	@Column
-	public Boolean ActPend;     //Tarea activa o pendiente
+	public Boolean ActPend = true;     //Tarea activa o pendiente
 	
 	@Column
 	public Short Score;
@@ -61,16 +61,36 @@ public class Task implements BaseEntity<Long>{
 		this.id = id;
 	}
 	
+	public String getName(){
+		return Name;
+	}
+	
+	public void setName(String name){
+		Name = name;
+	}
+	
 	public String getDescription(){
 		return Description;
 	}
 	
+	public void setDescription(String descript){
+		Description = descript;
+	}
+	
 	public Date getStartDate(){
 		return StartDate;
-	} 
+	}
+	
+	public void setStarDate(Date starDate){
+		StartDate = starDate;
+	}	
 	
 	public Date getDeadLineDate(){
 		return DeadLineDate;
+	}
+	
+	public void setDeadLineDate(Date deadLineDate){
+		DeadLineDate = deadLineDate;
 	}
 	
 	public Date getDeliveryDate(){
@@ -80,6 +100,7 @@ public class Task implements BaseEntity<Long>{
 	public Short getScore(){
 		return Score;
 	}
+	
 		
 	
 }

@@ -12,7 +12,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import app.dominio.Manager;
 import app.dominio.Person;
+import app.dominio.Theme;
+import app.repositorio.ManagerRepository;
 import app.repositorio.PersonRepository;
+import app.repositorio.ThemeRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,6 +23,12 @@ public class FirstTest {
 	
 	@Autowired
 	PersonRepository personrepository;
+	
+	@Autowired
+	ManagerRepository managerrepository;
+	
+	@Autowired
+	ThemeRepository themeRepository;
 
 	@Test
 	public void test() {
@@ -35,8 +44,24 @@ public class FirstTest {
 		
 		Person p = personrepository.save(persona1);
 		
+		Manager man = new Manager();
+		man.setPerson(p);
+		managerrepository.save(man);
+		
+		managerrepository.findManager(p.getId());
 		
 		
 	}
+	
+	@Test
+	public void testTheme(){
+		Theme th = new Theme();
+		th.setName("it");
+		
+		Theme t = themeRepository.save(th);
+		
+		
+	}
+	
 	
 }

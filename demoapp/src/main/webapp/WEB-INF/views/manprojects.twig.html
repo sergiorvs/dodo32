@@ -6,8 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
   
   <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
-
-  <link rel="stylesheet" href="css/style.css">
   
   <style type="text/css">
 #navegador ul{
@@ -44,9 +42,8 @@ tr:nth-child(even) {
 
 
 <body>
- Name Manager !
+{{ person.firstname }} !
  <button type="button">Sign out</button>
- 
  <div id="navegador">
 <ul>
 <li><a href="manprojects" style="background-color:#d97e02; color: #ffffff;">Projects</a></li>
@@ -67,17 +64,26 @@ tr:nth-child(even) {
     <th>    </th>
   </tr>
 
+{% for project in projects %}
+  <form action="open_project" method="GET">
   <tr>
-    <td>Actual</td>     <!-- Significa que el proyecto no finalizado -->
-    <td>App Movil</td>    
-   <td><a href='mandetailproj'><button> Go!</button></a></td>
-  </tr>	
-  
-  <tr>
-    <td>Past</td>	   <!-- Significa que el proyecto ya finalizado-->
+    {%  if project.act_finis %}
+    <td>Open</td>     <!-- Significa que el proyecto si/no finalizado -->
+    {% else %}
+    <td>Finalized</td>
+    {% endif %}
+    <td><input type="hidden" name="proj" value="{{ project.id }}" >{{ project.name }}</td>    
+   <!-- td><a href='mandetailproj'><button> Go!</button></a></td-->
+   <td><button type="submit"> Go!</button>   
+  </tr>
+  </form>
+{% endfor %}  
+
+  <!--  tr>
+    <td>Past</td>	   
     <td>Judo App</td>   
     <td><a href='mandetailproj'><button> Go!</button></a></td>
-  </tr>	
+  </tr-->	
 	
 </table>
 

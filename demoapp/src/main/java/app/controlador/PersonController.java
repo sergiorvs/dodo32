@@ -1,6 +1,9 @@
 package app.controlador;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,8 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import app.dominio.Manager;
 import app.dominio.Person;
+import app.dominio.Project;
+import app.dominio.Task;
+import app.dominio.Theme;
+import app.dominio.UserProgmmr;
+import app.servicio.ManagerService;
 import app.servicio.PersonService;
+import app.servicio.ProjectService;
+import app.servicio.TaskService;
+import app.servicio.ThemeService;
+import app.servicio.UserProgrammerService;
 
 @Controller
 public class PersonController {
@@ -20,16 +33,46 @@ public class PersonController {
 	@Autowired
 	PersonService personService;
 	
+	@Autowired
+	ManagerService managerService;
+	
+	@Autowired
+	UserProgrammerService userprogService;
+	
+	@Autowired
+	ProjectService projService;
+	
+	@Autowired
+	TaskService taskService;
+	
+	@Autowired
+	ThemeService themeService;
+	
+	Person person;
+	Manager manager;
+	UserProgmmr programmer;
+	Project project;
+	Map<String, Object> params = new HashMap<>();
+	
+	
 	@PostMapping("/startpage")  //PARA METODO=POST en el form de home.twig.html 
 	String validarUsuario(String usernam, String paswd, ModelMap model){
-		Person person = personService.validarUsuario(usernam,paswd);
+		person = personService.validarUsuario(usernam,paswd);
 		if(person!=null){
+			 
+			 params.put("person", person);
+			 
 			if (person.typePerson == 1 ){ //manager = 1 
-				model.addAttribute("person",person);  //("manager",person);
+				manager = managerService.findManager(person.getId());
+				params.put("manager",manager);
+				//model.addAttribute("person",person);
+				model.addAllAttributes(params);
  				return "manager";
 			}
 			else {	//programmer = 2
-				model.addAttribute("person",person);  //("userprog",person);
+				programmer = userprogService.findProgrammer(person.getId());
+				params.put("programmer", programmer);
+				model.addAttribute("person",person);  
 				return "userprog";
 			}
 		}
@@ -44,11 +87,70 @@ public class PersonController {
 	return "register";
 	}
 	
-	@PostMapping("/user_register")  
+	@PostMapping("/user_register") //user_register  
 	String formuserReg(String firstn, String lastn, String mailpers, String userna, String paswd, String personCode){
 		Person person1 = personService.registertype(firstn, lastn, mailpers, userna, paswd, personCode);
 		return "home";
 	}
 	
-
+	@RequestMapping(value = "/manprojects", method = RequestMethod.GET)
+	String manprojects(ModelMap model){
+	//model.addAttribute("person",person);
+	//model.addAllAttributes(params);
+	params.put("projects", projService.findAllProjects(manager));
+	model.addAllAttributes(params);
+	//model.addAttribute("projects", projService.findAllProjects(manager.getId()));
+	return "manprojects";
+	}
+	
+	@RequestMapping(value = "/man_create_project", method = RequestMethod.GET)
+	String createProj(ModelMap model){
+		//model.addAttribute("person",person);
+		model.addAllAttributes(params);
+		return "man_create_project";
+	}
+	
+	
+	@PostMapping("/form_create_project")
+	String mancreateproj(String pname, String dname, ModelMap model){		
+		Project proj = projService.save_project(pname, dname, manager.getId());
+		//model.addAttribute("person",person);
+		params.put("projects", projService.findAllProjects(manager));
+		model.addAllAttributes(params);
+	return "manprojects";
+	}
+	
+	@RequestMapping(value = "/open_project", method = RequestMethod.GET)
+	String mandetailproj(ModelMap model, Long proj){
+		project = projService.findById(proj);
+		params.put("project", project);
+		model.addAllAttributes(params);
+	return "mandetailproj";
+	}
+	
+	@RequestMapping(value="/man_addTheme",method = RequestMethod.GET)
+	String manaddtheme(ModelMap model){
+	return "man_add_theme";
+	}
+	
+	
+	@PostMapping("/manaddtheme")
+	String manbackfromtheme(String newtheme, ModelMap model){
+		Theme theme = themeService.AddTheme(newtheme);
+	return "mandetailproj";
+	}
+	
+	@RequestMapping(value = "/man_create_task", method = RequestMethod.GET)
+	String mancreatetask(ModelMap model){
+		List<Theme> themes = themeService.findAll();
+		List<Person> programmers = personService.getAllTypePerson((short) 2);
+		params.put("themes",themes);
+		params.put("programmers",programmers);		
+		model.addAllAttributes(params);
+	return "man_create_task";
+	}
+	
+	/*	 Programmer's Pages */
+	
+	
 }

@@ -34,7 +34,7 @@ public class SpotifyController {
 		return "manager";
 		}
 
-	*/	
+		
 		@RequestMapping(value = "/manprojects", method = RequestMethod.GET)
 		String manprojects(ModelMap model){
 		return "manprojects";
@@ -50,15 +50,25 @@ public class SpotifyController {
 		return "mandetailproj";
 		}
 		
-		@RequestMapping(value = "/manuserproglist", method = RequestMethod.GET)
-		String manuserproglist(ModelMap model){
-		return "manuserproglist";
-		}
-		
 		@RequestMapping(value = "/man_create_task", method = RequestMethod.GET)
 		String mancreatetask(ModelMap model){
 		return "man_create_task";
 		}
+		
+		@RequestMapping(value = "/man_add_theme", method = RequestMethod.GET)
+		String mancreatetask(ModelMap model){
+		return "man_add_theme";
+		}
+	*/	
+	
+		
+	
+	
+		@RequestMapping(value = "/manuserproglist", method = RequestMethod.GET)
+		String manuserproglist(ModelMap model){
+		return "manuserproglist";
+		}
+				
 		
 		@RequestMapping(value = "/man_delete_task", method = RequestMethod.GET)
 		String mandeletetask(ModelMap model){
