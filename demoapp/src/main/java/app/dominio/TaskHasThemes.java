@@ -1,5 +1,5 @@
 package app.dominio;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +14,13 @@ public class TaskHasThemes implements BaseEntity<Long>{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "tahth_id_generator")
 	private Long id;
 	
+	@Column(name="themeId")
+	private Long themeId;
+	
+	@Column(name="taskId")
+	private Long taskId;
+	
+	
 	@Override
 	public Long getId() {
 		return id;
@@ -24,4 +31,21 @@ public class TaskHasThemes implements BaseEntity<Long>{
 		this.id = id;
 	}
 
+	public void setThemeId(Long theme_id){
+		themeId = theme_id;
+	}
+	
+	public Long getThemeId(){
+		return themeId;
+	}
+	
+	public void setTaskId(Long task_Id){
+		taskId = task_Id;
+	}
+	
+	public Long getTaskId(){
+		return taskId;
+	}
+	
+	
 }

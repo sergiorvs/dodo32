@@ -82,35 +82,37 @@
 
 </ul>
 </div>
+Project Name: <h1>{{ project.name }}</h1>
+<br>
 Create Task
 <br>
 <section>
-<form action="form_create_task" method="POST">
+<form action="form_create_task" id="taskf" method="POST">
 	Name: <input type="text"name="taskname"><br>
 	Description:<br> <textarea name="taskdescript"></textarea><br>
 	User Programmer: 
 	
-	<select>
+	<select name="taskprogrammer">
 	
 	  <option value="" name="">Select a programmer</option>
 	  
 	{% for programmer in programmers %}	
-	 <option value="{{ programmer.id }}" name="programmer">{{ programmer.firstName }}</option>
+	 <option value="{{ programmer.id }}" name="taskprogrammer" >{{ programmer.firstName }}</option>
 	{% endfor %}
 	  
 	</select>
 	<br>
 	
-	Start Date: <input type="date"><br>
-	Dead Line Date: <input type="date"><br>
+	Start Date: <input type="date" name="stardate" required><br>
+	Dead Line Date: <input type="date" name="deadlinedate"><br>
 	Themes:<br>
 	
 	{% for theme in themes %}
-	<input type="checkbox" name="DataB" value="{{ theme.id }}">{{ theme.name }}  <br>
+	<input type="checkbox" name="selectthemes" value="{{ theme.id }}">{{ theme.name }}  <br>
 	{% endfor %}
 	
 	
-	  
+	  <button type="submit">Finish</button>
 </form>
 	<button id="createtheme" class="addbutt" disabled="true">Create Theme</button>
 
@@ -129,7 +131,7 @@ Create Task
 		</div>
 	</section>
 	
-<button>Finish</button>
+
 </section>
 
 </body>

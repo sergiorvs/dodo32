@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -53,6 +55,7 @@ public class PersonController {
 	UserProgmmr programmer;
 	Project project;
 	Map<String, Object> params = new HashMap<>();
+	Map referenceData = new HashMap();
 	
 	
 	@PostMapping("/startpage")  //PARA METODO=POST en el form de home.twig.html 
@@ -148,6 +151,14 @@ public class PersonController {
 		params.put("programmers",programmers);		
 		model.addAllAttributes(params);
 	return "man_create_task";
+	}
+	
+	@PostMapping("/form_create_task")
+	String formcreatetask(HttpServletRequest request, String taskname, String taskdescript, Long taskprogrammer, Date stardate, Date deadlinedate, String[] selectthemes, ModelMap model){
+		String[] sthemes = request.getParameterValues("selectthemes");   //Get all checkboxes checked in the form
+		Task task = taskService.AddTask(taskname, taskdescript, taskprogrammer, stardate, deadlinedate, sthemes, project.getId(),manager.getId());
+		model.addAllAttributes(params);
+		return "mandetailproj";
 	}
 	
 	/*	 Programmer's Pages */

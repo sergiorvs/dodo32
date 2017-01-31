@@ -14,6 +14,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
 @Entity
 public class Task implements BaseEntity<Long>{
 	@Id
@@ -28,7 +31,8 @@ public class Task implements BaseEntity<Long>{
 	public String Description;	
 		
 	@Column
-	public Date StartDate = new Date();
+	@DateTimeFormat(iso=ISO.DATE)
+	public Date StartDate;
 		 
 	@Column
 	public Date DeadLineDate;   //fecha fin establecida por el Manager
@@ -45,6 +49,16 @@ public class Task implements BaseEntity<Long>{
 	/*@ManyToMany
 	@JoinTable(name="task_has_temas",joinColumns={@JoinColumn(name="task_id")},inverseJoinColumns={@JoinColumn(name="theme_id")})
 	private List<Theme> temas;*/
+	
+	@Column(name="projectId")
+	private Long projectId;
+	
+	@Column(name="managerId")
+	private Long managerId;
+	
+	@Column(name="userProgmmrId")
+	private Long userProgmmrId;
+	
 	
 	@OneToMany
 	@JoinColumn(name="taskId")
@@ -101,6 +115,28 @@ public class Task implements BaseEntity<Long>{
 		return Score;
 	}
 	
-		
+	public void setProjectId(Long projId ){
+		projectId = projId;
+	}
+	
+	public Long getProjectId(){
+		return projectId;
+	}
+	
+	public void setmanagerId(Long manId){
+		managerId = manId;
+	}	
+	
+	public Long getmanagerId(){
+		return managerId;
+	}
+	
+	public void setuserProgmmrId(Long progmmrId){
+		userProgmmrId = progmmrId;
+	}
+	
+	public Long setuserProgmmrId(){
+		return userProgmmrId;
+	}
 	
 }
