@@ -49,16 +49,22 @@
 </ul>
 </div>
 
+Project Name: <h1>{{ project.name }}</h1>
+<br>
+
 Select the tasks to delete
 
 <section >
 <br>
-    <form action="">
-        <input type="checkbox" name="Task1" value="Task1"> Task1 Programmer1 <br>
-        <input type="checkbox" name="Task2" value="Task2"> Task2 Programmer2  
+    <form action="delete_task" method="GET">
+    	
+    	{% for pt in pendingtasks %}
+        <input type="checkbox" id="{{ pt.name }}" name="selecttasks" value="{{ pt.id}}">
+        <label for="{{ pt.name }}">{{ pt.name }}</label> <br>
+        {% endfor %}
+        <button type="submit">OK</button>            
     </form>
 <br>
-<button type="submit">OK</button>
     
 </section>
 

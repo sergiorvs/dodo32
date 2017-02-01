@@ -20,5 +20,10 @@ public interface ProjectRepository extends Repository<Project, Long>{
 	
 	@Query("SELECT p FROM Project p WHERE p.id= :projid)")
 	Project findById(@Param("projid")Long projid);
+	
+	//Use Programmer
+	
+	@Query(value="SELECT * FROM project P JOIN (SELECT Task.project_id  FROM Task WHERE (Task.user_progmmr_id = ?1) ) AS Pid ON P.id=Pid.project_id", nativeQuery = true)
+	List<Project> findProgrammersProjects(@Param("usprog")Long usprog); 
 
 }

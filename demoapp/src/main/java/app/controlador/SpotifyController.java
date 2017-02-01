@@ -59,21 +59,34 @@ public class SpotifyController {
 		String mancreatetask(ModelMap model){
 		return "man_add_theme";
 		}
-	*/	
-	
-		
-	
-	
-		@RequestMapping(value = "/manuserproglist", method = RequestMethod.GET)
-		String manuserproglist(ModelMap model){
-		return "manuserproglist";
-		}
-				
 		
 		@RequestMapping(value = "/man_delete_task", method = RequestMethod.GET)
 		String mandeletetask(ModelMap model){
 		return "man_delete_task";
 		}
+		
+		//User Programmer
+		
+		@RequestMapping(value = "/userprog", method = RequestMethod.GET)
+		String userprog(ModelMap model){
+		return "userprog";
+		}	
+		
+		
+		@RequestMapping(value = "/userprojects", method = RequestMethod.GET)
+		String userprojects(ModelMap model){
+		return "userprojects";
+		}
+		
+		
+	*/	
+		
+	
+		@RequestMapping(value = "/manuserproglist", method = RequestMethod.GET)
+		String manuserproglist(ModelMap model){
+		return "manuserproglist";
+		}
+							
 		
 		@RequestMapping(value = "/mandetailpendtask", method = RequestMethod.GET)
 		String mandetailpendtask(ModelMap model){
@@ -100,10 +113,7 @@ public class SpotifyController {
 		return "man_create_meeting";
 		}
 		
-		@RequestMapping(value = "/userprog", method = RequestMethod.GET)
-		String userprog(ModelMap model){
-		return "userprog";
-		}		
+			
 
 		@RequestMapping(value = "/usermeetings", method = RequestMethod.GET)
 		String usermeetings(ModelMap model){
@@ -120,10 +130,7 @@ public class SpotifyController {
 		return "useraddopt";
 		}
 		
-		@RequestMapping(value = "/userprojects", method = RequestMethod.GET)
-		String userprojects(ModelMap model){
-		return "userprojects";
-		}
+		
 		
 		@RequestMapping(value = "/usertasks", method = RequestMethod.GET)
 		String usertasks(ModelMap model){

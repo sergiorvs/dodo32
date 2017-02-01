@@ -53,4 +53,9 @@ public class ProjectService {
 	public Project findById(Long projid){
 		return projectRepository.findById(projid);
 	}
+	
+	public List<Project> findProgrammersProjects(Long userprogId){
+		return projectRepository.findProgrammersProjects(userprogId);
+	}
+	
 }

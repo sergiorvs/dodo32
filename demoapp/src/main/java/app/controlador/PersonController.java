@@ -161,7 +161,42 @@ public class PersonController {
 		return "mandetailproj";
 	}
 	
+	@RequestMapping(value = "/man_delete_task", method = RequestMethod.GET)
+	String mandeletetask(ModelMap model){
+		List<Task> pendingtasks = taskService.findPendingTask();
+		params.put("pendingtasks", pendingtasks);
+		model.addAllAttributes(params);
+	return "man_delete_task";
+	}
+	
+	@RequestMapping(value = "/delete_task", method = RequestMethod.GET) 
+	//@PostMapping("/delete_task")
+	String delete_task(HttpServletRequest request, String[] selecttasks, ModelMap model){
+		String[] stasks = request.getParameterValues("selecttasks");
+		taskService.deleteTaskById(stasks);
+		model.addAllAttributes(params);
+		return "man_delete_task";
+	}
+	
+	
 	/*	 Programmer's Pages */
+	
+	@RequestMapping(value = "/userprojects", method = RequestMethod.GET)
+	String userprojects(ModelMap model){
+		List<Project> projects = projService.findProgrammersProjects(programmer.getId());
+		params.put("projects", projects);
+		model.addAllAttributes(params);
+	return "userprojects";
+	}
+	
+	@RequestMapping(value="/user_detail_project",method = RequestMethod.GET)
+	String userDetailProjects(Long usproj,  ModelMap model){
+		project = projService.findById(usproj);
+		params.put("project", project);
+		model.addAllAttributes(params);
+		return "usertasks";
+	}
+	
 	
 	
 }

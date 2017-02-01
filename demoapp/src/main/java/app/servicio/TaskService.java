@@ -1,5 +1,6 @@
 package app.servicio;
 
+import java.sql.PreparedStatement;
 import java.util.Date;
 import java.util.List;
 
@@ -60,6 +61,17 @@ public class TaskService {
 		}
 		return t_aux;
 	} 
+	
+	public List<Task> findPendingTask(){
+		return taskRepository.findPendingTask();
+	}
+	
+	public void deleteTaskById(String[] stasks){
+		for(int i = 0; i< stasks.length ; i++){		
+			taskRepository.deleteTaskById(Long.parseLong(stasks[i]));
+		}
+	}
+	
 	
 	
 }

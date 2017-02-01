@@ -42,7 +42,7 @@ tr:nth-child(even) {
 </head>
 
 <body>
-Programmer Name! 
+Programmer {{ person.firstname }}! 
  <button type="button">Sign out</button>
 
 <div id="navegador">
@@ -65,20 +65,17 @@ Projects in which you participate
     <th>Score</th>
     <th>    </th>
   </tr>
-
+{% for project in projects %}
+<form action="user_detail_project" method="GET">
   <tr>
-    <td>Actual</td>     <!-- Significa que el proyecto no finalizado -->
-    <td>App Movil</td>
-    <td>4 </td>     
+    <td>{{ project.act_finis }}</td>     <!-- Significa que el proyecto no finalizado -->
+    <td>{{ project.name }}</td>
+    <td>4 </td>
+    <td><input type="hidden" name="usproj" value="{{ project.id }}" ></td>     
    <td><a href='usertasks'><button> Go!</button></a></td>
   </tr>	
-  
-  <tr>
-    <td>Past</td>	   <!-- Significa que el proyecto ya finalizado-->
-    <td>Judo App</td>
-    <td>9 </td>    
-    <td><a href='usertasks'><button> Go!</button></a></td>
-  </tr>	
+  </form>
+{% endfor %}  
 	
 </table>
 
