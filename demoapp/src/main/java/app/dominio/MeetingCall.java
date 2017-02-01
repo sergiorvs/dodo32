@@ -27,6 +27,9 @@ public class MeetingCall implements BaseEntity<Long>{
 	@Column
 	public Boolean actPast;
 	
+	@Column(name="managerId")
+	private Long managerId;
+	
 	@OneToMany
 	@JoinColumn(name="meetingCallId")
 	private List<UserprHasConvoc> userhasmc;
@@ -43,6 +46,22 @@ public class MeetingCall implements BaseEntity<Long>{
 	@Override
 	public void setId(Long id) {		
 		this.id = id;
+	}
+	
+	public void setManagerId(Long managId){
+		managerId = managId;
+	}
+	
+	public Long getManagerId(){
+		return managerId;
+	}
+	
+	public void setName(String meetName){
+		Name = meetName;
+	}
+	
+	public String getName(){
+		return Name;
 	}
 	
 }

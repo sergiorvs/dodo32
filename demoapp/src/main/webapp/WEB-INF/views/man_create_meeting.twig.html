@@ -43,7 +43,7 @@ alert("Tiene que redireccionar a manmeetinglist. Esta alert debe ser  borrada de
 
 
 <body>
- Manager Name!
+ Manager {{ person.firstname }} !
  <button type="button">Sign out</button>
  
  <div id="navegador">
@@ -58,15 +58,15 @@ alert("Tiene que redireccionar a manmeetinglist. Esta alert debe ser  borrada de
 <div>
 Create Meeting
 <hr style="color: #0056b2;" /> 
- <form action="">
+ <form action="meetingform" method="POST">
 		Name: <input type="text" name="mname" required><br>
 		Guests:<br>
-        <input type="checkbox" name="Theme1" value="Theme1"> Programmer1 <br>
-        <input type="checkbox" name="Theme2" value="Theme2"> Programmer2 <br> 
-        <input type="checkbox" name="Theme3" value="Theme3"> Programmer3 <br>
-        <input type="checkbox" name="Theme4" value="Theme4"> Programmer4 <br> 
-        
-        <a href="manmeetinglist"><input type="submit" value="Ok" onclick="funcao1()"></a>
+		{% for programmer in programmers %}
+		<input type="checkbox" name="mprog" value="{{ programmer.id }}">{{ programmer.firstName }} <br>
+		{% endfor %}
+		
+		 
+        <button type="submit">Ok</button>
  </form>    
     <!-- a href="manmeetinglist"><button>Ok</button></a-->
 

@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import app.dominio.Manager;
+import app.dominio.MeetingCall;
 import app.dominio.Person;
 import app.dominio.Project;
 import app.dominio.Task;
 import app.dominio.Theme;
 import app.dominio.UserProgmmr;
 import app.servicio.ManagerService;
+import app.servicio.MeetingCallService;
 import app.servicio.PersonService;
 import app.servicio.ProjectService;
 import app.servicio.TaskService;
@@ -49,6 +51,9 @@ public class PersonController {
 	
 	@Autowired
 	ThemeService themeService;
+	
+	@Autowired
+	MeetingCallService meetingcallService;
 	
 	Person person;
 	Manager manager;
@@ -177,6 +182,35 @@ public class PersonController {
 		model.addAllAttributes(params);
 		return "man_delete_task";
 	}
+	
+	
+	//Meeting List 
+	
+	@RequestMapping(value = "/manmeetinglist", method = RequestMethod.GET)
+	String manmeetinglist(ModelMap model){
+		//MeetingCall meetings = meetingcallService.
+		params.put("meetings", meetingcallService.findMeetingCallsByIdManager(manager.getId()));
+		model.addAllAttributes(params);
+	return "manmeetinglist";
+	}
+	
+	@RequestMapping(value = "/man_create_meeting", method = RequestMethod.GET)
+	String mancreatemeeting(ModelMap model){
+		List<Person> programmers = personService.getAllTypePerson((short) 2);
+		params.put("programmers",programmers);	
+		model.addAllAttributes(params);
+	return "man_create_meeting";
+	}
+	
+	@PostMapping("/meetingform")
+	String manmeetingform(HttpServletRequest request, String mname, String[] mprog, ModelMap model){
+		String[] meetprogrammers = request.getParameterValues("mprog");
+		MeetingCall metcall = meetingcallService.saveMeeting(mname, meetprogrammers, manager.getId());
+		params.put("meetings", meetingcallService.findMeetingCallsByIdManager(manager.getId()));
+		model.addAllAttributes(params);
+	return "manmeetinglist";
+	}
+	
 	
 	
 	/*	 Programmer's Pages */

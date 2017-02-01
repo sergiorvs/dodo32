@@ -1,5 +1,6 @@
 package app.dominio;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +14,13 @@ public class UserprHasConvoc implements BaseEntity<Long>{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "userhasmeetcalls_id_generator")
 	private Long id;	
 	
+	@Column(name="meetingCallId")
+	private Long meetingCallId;
+	
+	@Column(name="userProgmmrId")
+	private Long userProgmmrId;	
+	
+	
 	@Override
 	public Long getId() {		
 		return id;
@@ -23,6 +31,21 @@ public class UserprHasConvoc implements BaseEntity<Long>{
 		this.id = id;
 	}
 	
+	public void setMeetingCallId(Long meetid){
+		meetingCallId = meetid;
+	}
+	
+	public Long getMeetingCallId(){
+		return meetingCallId;
+	}
+	
+	public void setUserProgmmrId(Long progid){
+		userProgmmrId = progid;
+	}
+	
+	public Long getUserProgmmrId(){
+		return userProgmmrId;
+	}
 
 }
 
